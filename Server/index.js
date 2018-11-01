@@ -18,8 +18,10 @@ app.use((req, res, next) => {
 app.get('/', (req, res) => {
    
 });
-app.post("/manual", (req, res) => {
-  Machine.manual(req.body.command);
+
+app.post("/manual", async (req, res) => {
+  await Machine.manual(req.body.command);
+  res.status(200).send();
 });
 
 app.listen(3000, function () {
