@@ -1,22 +1,22 @@
-class CoffeeMachine{
-    
-    static startMachine(){
+class CoffeeMachine {
+
+    static startMachine() {
 
     }
-    static stopMachine(){
-
-    }
-
-    static brew(order){
-
-    }
-    
-    static order(){
+    static stopMachine() {
 
     }
 
-    static manual(){
+    static brew(order) {
 
+    }
+
+    static order() {
+
+    }
+
+    static manual(command) {
+        console.log(command)
     }
 }
 module.exports = CoffeeMachine;
