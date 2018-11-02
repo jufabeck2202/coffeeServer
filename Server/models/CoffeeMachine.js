@@ -1,6 +1,7 @@
 const ADRESS = "https://jsonplaceholder.typicode.com/posts"
 const axios = require('axios');
 const statusCodes = {"C045":"tray missing","C404":"no water","C444":"no tray and no water","4005":"machine on"}
+
 class CoffeeMachine {
 
     static startMachine() {
@@ -23,8 +24,9 @@ class CoffeeMachine {
             return statusCodes[res.body]
         else return "unknown status code "+res.body
     }
-    static getStats() {
-
+    static async getStats() {
+        let res = await axios.post(ADRESS, "stats");
+        return res.body
     }
 
 
