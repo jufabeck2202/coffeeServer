@@ -67,7 +67,6 @@
           </div>
         </div>
       </nav>
-
       <p class="is-size-3">Commands: </p>
       <div class="notification">
         AN:01 coffeemaker on<br>
@@ -149,78 +148,76 @@
 </template>
 
 <script>
-  import axios from "axios";
-  export default {
-    name: "Coffee",
-    components: {},
-    data: function () {
-      return {
-        selectedCoffee: "1",
-        coffees: [{
-            name: "Espresso",
-            command: "1"
-          },
-          {
-            name: "Espressi",
-            command: "2"
-          },
-          {
-            name: "Esspersa",
-            command: "3"
-          }
-        ],
-        manualCommand: "",
-        server: "http://localhost:3000",
-
-      };
-    },
-    mounted() {},
-    methods: {
-      orderManual() {
-        axios
-          .post(this.server + "/manual", {
-            command: this.manualCommand
-          })
-          .then(function (response) {
-            // handle success
-            console.log(response);
-          });
-      },
-      startMachine() {
-        //launch toast
-        let heatingDuration = 5000
-        let heatTimer = 5000 / 1000
-        let toast = this.$toast.open({
-          duration: heatingDuration,
-          position: 'is-bottom',
-          message: `Please wait ${heatTimer}s until your machine is heated`,
-          type: 'is-info'
+import axios from "axios";
+export default {
+  name: "Coffee",
+  components: {},
+  data: function() {
+    return {
+      selectedCoffee: "1",
+      coffees: [
+        {
+          name: "Espresso",
+          command: "1"
+        },
+        {
+          name: "Espressi",
+          command: "2"
+        },
+        {
+          name: "Esspersa",
+          command: "3"
+        }
+      ],
+      manualCommand: "",
+      server: "http://localhost:3000"
+    };
+  },
+  mounted() {
+  },
+  methods: {
+    orderManual() {
+      axios
+        .post(this.server + "/manual", {
+          command: this.manualCommand
         })
+        .then(function(response) {
+          // handle success
+        });
+    },
+    startMachine() {
+      //launch toast
+      let heatingDuration = 5000;
+      let heatTimer = 5000 / 1000;
+      let toast = this.$toast.open({
+        duration: heatingDuration,
+        position: "is-bottom",
+        message: `Please wait ${heatTimer}s until your machine is heated`,
+        type: "is-info"
+      });
 
-        let timerId = setInterval(() => {
-          if (heatTimer == -1) {
-            clearTimeout(timerId);
-          } else {
-            heatTimer--;
-            console.log(heatTimer)
-            toast.message = `Please wait ${heatTimer}s until your machine is heated`
-          }
-        }, 1000);
-
-      }
+      let timerId = setInterval(() => {
+        if (heatTimer == -1) {
+          clearTimeout(timerId);
+        } else {
+          heatTimer--;
+          toast.message = `Please wait ${heatTimer}s until your machine is heated`;
+        }
+      }, 1000);
     }
-  };
+  }
+};
 </script>
 
 <style>
-   .spacer{
-    padding: 5px
-  }
-  .controll{
-    padding-left: 100px;
-    padding-right: 100px
-  }
-  .status{
-    padding: 10px
-  }
+.spacer {
+  padding: 5px;
+}
+.controll {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+.status {
+  padding: 10px;
+}
 </style>
