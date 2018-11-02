@@ -22,7 +22,7 @@
         </div>
         <div class="column is-half">
           <p class="is-size-4">Machine:  <span class="has-text-danger"><font-awesome-icon icon="toggle-off" /> off</span> </p>
-          <p class="is-size-4">Status: not running</p>
+          <p class="is-size-4">Status: <span class="has-text-warning">not running</span></p>
         </div>
 
       </div>
