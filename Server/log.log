@@ -1,0 +1,113 @@
+{"message":"recived request","level":"info"}
+{"message":"recived request","level":"info"}
+{"message":"recived request","level":"info"}
+[32minfo[39m: [32mrecived order, starting Machine[39m
+[32minfo[39m: [32mrecived order, starting Machine[39m
+[32minfo[39m: [32mrecived order, starting Machine[39m
+[32minfo[39m: [32mrecived order, starting Machine[39m
+[32minfo[39m: [32mrecived order, starting Machine[39m
+[32minfo[39m: [32mMachine Started[39m
+[32minfo[39m: [32mMachine Started[39m
+[32minfo[39m: [32mrecived order, start brewing[39m
+[32minfo[39m: [32mrecived order, starting Machine[39m
+[32minfo[39m: [32mMachine Started[39m
+[32minfo[39m: [32mrecived order, start brewing[39m
+[32minfo[39m: [32mrecived order, start brewing[39m
+[32minfo[39m: [32mrecived order, starting Machine[39m
+[32minfo[39m: [32mMachine Started[39m
+[32minfo[39m: [32mrecived order, start brewing[39m
+[32minfo[39m: [32mrecived order, start brewing[39m
+[32minfo[39m: [32mrecived order, start brewing[39m
+[32minfo[39m: [32mrecived order, start brewing[39m
+[32minfo[39m: [32mrecived order, starting Machine[39m
+[32minfo[39m: [32mMachine Started[39m
+[32minfo[39m: [32mrecived order, start brewing[39m
+[32minfo[39m: [32mrecived order, starting Machine[39m
+[32minfo[39m: [32mMachine Started[39m
+[32minfo[39m: [32mrecived order, start brewing[39m
+[32minfo[39m: [32mrecived order, starting Machine[39m
+[32minfo[39m: [32mMachine Started[39m
+[32minfo[39m: [32mrecived order, start brewing[39m
+[32minfo[39m: [32mrecived order, starting Machine[39m
+[32minfo[39m: [32mMachine Started[39m
+[32minfo[39m: [32mrecived order, starting Machine[39m
+[32minfo[39m: [32mMachine Started[39m
+[32minfo[39m: [32mrecived order, starting Machine[39m
+[32minfo[39m: [32mMachine Started[39m
+[32minfo[39m: [32mrecived order, starting Machine[39m
+[32minfo[39m: [32mMachine Started[39m
+[32minfo[39m: [32mFinished brewing[39m
+[32minfo[39m: [32mrecived order, start brewing[39m
+[32minfo[39m: [32mrecived order, starting Machine[39m
+[32minfo[39m: [32mMachine Started[39m
+[32minfo[39m: [32mFinished brewing[39m
+[32minfo[39m: [32mMaschine shutdown[39m
+[32minfo[39m: [32mMaschine shutdown[39m
+[32minfo[39m: [32mMaschine shutdown[39m
+[32minfo[39m: [32mMaschine shutdown[39m
+[32minfo[39m: [32mMaschine shutdown[39m
+[32minfo[39m: [32mMaschine shutdown[39m
+[32minfo[39m: [32mMaschine shutdown[39m
+[32minfo[39m: [32mMaschine shutdown[39m
+[32minfo[39m: [32mMaschine shutdown[39m
+[32minfo[39m: [32mMaschine shutdown[39m
+[32minfo[39m: [32mMaschine shutdown[39m
+[32minfo[39m: [32mMaschine shutdown[39m
+[32minfo[39m: [32mMaschine shutdown[39m
+[32minfo[39m: [32mMaschine shutdown[39m
+[32minfo[39m: [32mMaschine shutdown[39m
+[32minfo[39m: [32mrecived order, starting Machine[39m
+[32minfo[39m: [32mreset sleep timer[39m
+[32minfo[39m: [32mMachine Started[39m
+[32minfo[39m: [32mreset sleep timer[39m
+[32minfo[39m: [32mFinished brewing[39m
+[32minfo[39m: [32mMachine Sleeping[39m
+[32minfo[39m: [32mrecived order, starting Machine[39m
+[32minfo[39m: [32mreset sleep timer[39m
+[32minfo[39m: [32mMachine Started[39m
+[32minfo[39m: [32mreset sleep timer[39m
+[32minfo[39m: [32mFinished brewing[39m
+[32minfo[39m: [32mMachine Sleeping[39m
+{ message: 'recived order, starting Machine',
+  level: 'info',
+  label: 'right meow!',
+  timestamp: '2018-11-03T11:33:09.813Z',
+  [Symbol(level)]: 'info' }
+{ message: 'reset sleep timer',
+  level: 'info',
+  label: 'right meow!',
+  timestamp: '2018-11-03T11:33:13.317Z',
+  [Symbol(level)]: 'info' }
+{ message: 'Machine Started',
+  level: 'info',
+  label: 'right meow!',
+  timestamp: '2018-11-03T11:33:13.318Z',
+  [Symbol(level)]: 'info' }
+{ message: 'reset sleep timer',
+  level: 'info',
+  label: 'right meow!',
+  timestamp: '2018-11-03T11:33:16.605Z',
+  [Symbol(level)]: 'info' }
+{ message: 'Finished brewing',
+  level: 'info',
+  label: 'right meow!',
+  timestamp: '2018-11-03T11:33:16.606Z',
+  [Symbol(level)]: 'info' }
+[32minfo[39m: [32mrecived order, starting Machine[39m {"timestamp":"2018-11-03T11:35:28.016Z"}
+[32minfo[39m: [32mreset sleep timer[39m {"timestamp":"2018-11-03T11:35:31.553Z"}
+[32minfo[39m: [32mMachine Started[39m {"timestamp":"2018-11-03T11:35:31.554Z"}
+[32minfo[39m: [32mreset sleep timer[39m {"timestamp":"2018-11-03T11:35:34.933Z"}
+[32minfo[39m: [32mFinished brewing[39m {"timestamp":"2018-11-03T11:35:34.933Z"}
+[32minfo[39m: [32mMachine Sleeping[39m {"timestamp":"2018-11-03T11:35:54.948Z"}
+[32minfo[39m: [32mrecived order, starting Machine[39m
+[32minfo[39m: [32mreset sleep timer[39m
+[32minfo[39m: [32mMachine Started[39m
+[32minfo[39m: [32mreset sleep timer[39m
+[32minfo[39m: [32mFinished brewing[39m
+[32minfo[39m: [32mMachine Sleeping[39m
+[32minfo[39m: [32mrecived order, starting Machine[39m
+[32minfo[39m: [32mreset sleep timer[39m
+[32minfo[39m: [32mMachine Started[39m
+[32minfo[39m: [32mreset sleep timer[39m
+[32minfo[39m: [32mFinished brewing[39m
+[32minfo[39m: [32mMachine Sleeping[39m
