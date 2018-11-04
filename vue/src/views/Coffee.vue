@@ -80,9 +80,9 @@
         FA:01 Shutoff/on<br>
         FA:02 pieps<br>
         FA:03 Espresso 3<br>
-        FA:04 product 4<br>
-        FA:05 product 5<br>
-        FA:06 product 6 <br>
+        FA:04 Espressi 4<br>
+        FA:05 Coffee 5<br>
+        FA:06 double coffee 6 <br>
         FA:07 product 7<br>
         FA:08 hot water?<br>
         FA:09 steam/09<br>
@@ -159,6 +159,18 @@ export default {
         {
           name: "Espresso",
           command: "3"
+        },
+         {
+          name: "Espressi",
+          command: "4"
+        },
+        {
+          name: "Coffee",
+          command: "5"
+        },
+        {
+          name: "double Coffee",
+          command: "6"
         },
         {
           name: "Cappuchino",
