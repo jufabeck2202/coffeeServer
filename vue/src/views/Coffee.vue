@@ -18,7 +18,7 @@
         <div class="column is-half">
           <button class="button is-primary is-success is-rounded is-medium" @click="startMachine">Start Machine</button>
           <div class="spacer"></div>
-          <button class="button is-primary is-danger is-rounded is-medium">Stop Machine</button>
+          <button class="button is-primary is-danger is-rounded is-medium"  @click="stopMachine">Stop Machine</button>
         </div>
         <div class="column is-half">
           <p class="is-size-4">Machine:  <span class="has-text-danger"><font-awesome-icon icon="toggle-off" /> off</span> </p>
@@ -48,7 +48,7 @@
               </b-dropdown>
             </p>
             <p class="control">
-              <button class="button is-success">Order</button>
+              <button @click="order" class="button is-success">Order</button>
             </p>
           </div>
         </div>
@@ -77,9 +77,9 @@
         AN:06 key test<br>
         AN:0C UCHI test<br>
         AN:0D production date?<br>
-        FA:01 product 1<br>
-        FA:02 product 2<br>
-        FA:03 product 3<br>
+        FA:01 Shutoff/on<br>
+        FA:02 pieps<br>
+        FA:03 Espresso 3<br>
         FA:04 product 4<br>
         FA:05 product 5<br>
         FA:06 product 6 <br>
@@ -158,15 +158,11 @@ export default {
       coffees: [
         {
           name: "Espresso",
-          command: "1"
-        },
-        {
-          name: "Espressi",
-          command: "2"
-        },
-        {
-          name: "Esspersa",
           command: "3"
+        },
+        {
+          name: "Cappuchino",
+          command: "9"
         }
       ],
       manualCommand: "",
@@ -176,6 +172,16 @@ export default {
   mounted() {
   },
   methods: {
+  
+    order(){
+       axios
+        .post(this.server + "/order", {
+          order: this.selectedCoffee
+        })
+        .then(function(response) {
+          // handle success
+        });
+    },
     orderManual() {
       axios
         .post(this.server + "/manual", {
@@ -186,15 +192,24 @@ export default {
         });
     },
     startMachine() {
+        axios
+      .post(this.server + "/start", {
+          order: this.selectedCoffee
+        })
+        .then(function(response) {
+          // handle success
+        });
+
       //launch toast
-      let heatingDuration = 5000;
-      let heatTimer = 5000 / 1000;
+      let heatingDuration = 60000;
+      let heatTimer = 60000 / 1000;
       let toast = this.$toast.open({
         duration: heatingDuration,
         position: "is-bottom",
         message: `Please wait ${heatTimer}s until your machine is heated`,
         type: "is-info"
       });
+      
 
       let timerId = setInterval(() => {
         if (heatTimer == -1) {
@@ -204,6 +219,14 @@ export default {
           toast.message = `Please wait ${heatTimer}s until your machine is heated`;
         }
       }, 1000);
+    },
+    stopMachine() {
+        axios
+      .post(this.server + "/stop", {
+        })
+        .then(function(response) {
+          // handle success
+        });
     }
   }
 };

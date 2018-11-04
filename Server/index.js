@@ -18,6 +18,13 @@ app.use((req, res, next) => {
 app.get('/', (req, res) => {
 
 });
+app.post("/start", async (req, res) => {
+  Machine.start()
+});
+
+app.post("/stop", async (req, res) => {
+  Machine.stop()
+});
 
 app.post("/manual", async (req, res) => {
   if (req.body.command == "AN:0A")
@@ -50,7 +57,7 @@ async function startBrew(order) {
 }
 
 async function startMachineAndBrew(order) {
-  logger.info("recived order, starting Machine");
+  logger.info("recived order "+order+", starting Machine");
   await Machine.start()
   logger.info("Machine Started");
   await Machine.brew(order)

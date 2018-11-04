@@ -1,15 +1,22 @@
-const ADRESS = "https://jsonplaceholder.typicode.com/posts"
+const ADRESS = "http://192.168.178.132/api"
 const axios = require('axios');
 const logger = require("../logger");
-const START_TIME = 3;
-const BREW_TIME = 3;
-const SHUTDOWN_TIME = 20;
+const START_TIME = 60;
+const BREW_TIME = 30;
+const SHUTDOWN_TIME = 60*60*60;
 const statusCodes = {
     "C045": "tray missing",
     "C404": "no water",
     "C444": "no tray and no water",
     "4005": "machine on"
 }
+const config = {
+    headers: {
+        'Content-Length': 0,
+        'Content-Type': 'text/plain'
+    },
+   responseType: 'text'
+};
 
 class CoffeeMachine {
 
@@ -21,19 +28,21 @@ class CoffeeMachine {
     }
     static async start() {
         //start machine
-        let res = await axios.post(ADRESS, "AN:01");
+        let res = await axios.post(ADRESS, "AN:01",config);
         await this.timeout(START_TIME);
         this.on = true
         this.sleep()
     }
 
     static async stop() {
-
-        let res = await axios.post(ADRESS, "AN:02");
+        let res = await axios.post(ADRESS, "AN:02", config);
+        this.on = false
+        clearTimeout(this.shutdownTimeout)
     }
 
     static async brew(order) {
-        let res = await axios.post(ADRESS, "FA:0" + order);
+        let res = await axios.post(ADRESS, "FA:0" + order,config);
+        logger.info("Start brewing "+order+" "+res.body)
         await this.timeout(BREW_TIME)
         this.sleep()
     }
@@ -54,14 +63,14 @@ class CoffeeMachine {
     }
 
     static async getStats() {
-        let res = await axios.post(ADRESS, "stats");
+        let res = await axios.post(ADRESS, "stats",config);
         return res.body
     }
 
 
     static async manual(command) {
-        let res = await axios.post(ADRESS, command);
-
+        logger.info("recieved manual command "+command)
+        let res = await axios.post(ADRESS, command,config);
     }
 
     static timeout(s) {
