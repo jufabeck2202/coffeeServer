@@ -85,7 +85,7 @@
         FA:06 product 6 <br>
         FA:07 product 7<br>
         FA:08 hot water?<br>
-        FA:09 steam<br>
+        FA:09 steam/09<br>
         FN:01 pump on<br>
         FN:02 pump off<br>
         FN:03 heating on<br>

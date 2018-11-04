@@ -10,8 +10,7 @@
 #define GPIORX    12
 #define GPIOTX    13
 
-#define GPIOLEDIO     4
-#define GPIOLEDPULSE  0
+
 byte z0, z1, z2, z3;
 byte x0, x1, x2, x3, x4;
 byte d0, d1, d2, d3;
@@ -81,9 +80,8 @@ void handle_command() {
     return;
   }
 
-  digitalWrite(GPIOLEDIO, HIGH);
+
   result = cmd2jura(cmd);
-  digitalWrite(GPIOLEDIO, LOW);
 
   if (result.length() < 3) {
     webserver.send(503, "text/plain", "Service Unavailable");
@@ -264,8 +262,6 @@ void setup() {
 
   softserial.begin(9600);
 
-  pinMode(GPIOLEDIO, OUTPUT);
-  pinMode(GPIOLEDPULSE, OUTPUT);
 
 }
 
@@ -275,6 +271,4 @@ void loop() {
 
   webserver.handleClient();
 
-  i = (i + 1) % 200000;
-  digitalWrite(GPIOLEDPULSE, (i < 100000) ? LOW : HIGH);
 }
