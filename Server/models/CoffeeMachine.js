@@ -3,7 +3,7 @@ const axios = require('axios');
 const logger = require("../logger");
 const START_TIME = 60;
 const BREW_TIME = 30;
-const SHUTDOWN_TIME = 60*60*60;
+const SHUTDOWN_TIME = 60*60;
 const statusCodes = {
     "C045": "tray missing",
     "C404": "no water",
@@ -30,6 +30,7 @@ class CoffeeMachine {
         //start machine
         let res = await axios.post(ADRESS, "AN:01",config);
         await this.timeout(START_TIME);
+        logger.info("Machine started...")
         this.on = true
         this.sleep()
     }
@@ -37,7 +38,7 @@ class CoffeeMachine {
     static async stop() {
         let res = await axios.post(ADRESS, "AN:02", config);
         this.on = false
-        clearTimeout(this.shutdownTimeout)
+        logger.info("Machine stop")
     }
 
     static async brew(order) {
@@ -51,8 +52,9 @@ class CoffeeMachine {
         logger.info("reset sleep timer")
         clearTimeout(this.shutdownTimeout)
         this.shutdownTimeout = setTimeout(() => {
-            logger.info("Machine Sleeping")
+            
             this.on = false
+            logger.info("Machine Sleeping "+this.on)
         }, SHUTDOWN_TIME * 1000)
     }
     static async getStatus() {
