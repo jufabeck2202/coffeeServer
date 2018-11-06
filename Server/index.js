@@ -1,22 +1,18 @@
-let express = require('express');
-let app = express();
-let bodyParser = require('body-parser')
-let Machine = require("./models/CoffeeMachine");
+const express = require('express');
+const cors = require("cors");
+const bodyParser = require('body-parser')
+const Machine = require("./models/CoffeeMachine");
 const logger = require("./logger");
 Machine.ON = false;
 
 
-
+let app = express();
 app.use(bodyParser.json())
-
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next()
-});
+app.use(cors())
+app.use(express.static('../vue/dist'));
 
 app.get('/', (req, res) => {
-
+  res.sendFile('../vue/dist/index.html');
 });
 app.post("/start", async (req, res) => {
   Machine.start()
