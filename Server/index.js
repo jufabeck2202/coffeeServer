@@ -22,6 +22,12 @@ app.post("/stop", async (req, res) => {
   Machine.stop()
 });
 
+app.post("/status", async (req, res) => {
+  res.status("200").send({
+    status: Machine.ON
+  })
+});
+
 app.post("/manual", async (req, res) => {
   if (req.body.command == "AN:0A")
     res.status(500).send();
