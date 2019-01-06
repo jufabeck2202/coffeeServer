@@ -178,7 +178,7 @@ export default {
         }
       ],
       manualCommand: "",
-      server: "http://localhost:3000"
+      server: "http://192.168.178.60:3000"
     };
   },
   mounted() {

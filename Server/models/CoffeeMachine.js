@@ -3,7 +3,7 @@ const axios = require('axios');
 const logger = require("../logger");
 const START_TIME = 60;
 const BREW_TIME = 30;
-const SHUTDOWN_TIME = 60*60*60;
+const SHUTDOWN_TIME = 60*60;
 const statusCodes = {
     "C045": "tray missing",
     "C404": "no water",
