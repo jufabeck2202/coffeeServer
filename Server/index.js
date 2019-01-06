@@ -18,6 +18,13 @@ app.post("/start", async (req, res) => {
   Machine.start()
 });
 
+app.get('/getstatus', (req, res) => {
+  if(Machine.ON)
+    res.status(200).send("1")
+  else
+    res.status(200).send("0")
+});
+
 app.post("/stop", async (req, res) => {
   Machine.stop()
 });
