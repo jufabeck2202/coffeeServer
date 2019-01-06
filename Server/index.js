@@ -19,7 +19,7 @@ app.post("/start", async (req, res) => {
 });
 
 //for Homebridge
-app.get('/getstatus', (req, res) => {
+app.get('/getStatus', (req, res) => {
   if (Machine.ON)
     res.status(200).send("1")
   else
