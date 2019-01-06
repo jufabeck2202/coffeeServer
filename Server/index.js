@@ -70,6 +70,30 @@ app.post("/order", async (req, res) => {
   }
 });
 
+app.get("/orderInstant/:id", async (req, res) => {
+  startBrew(req.params.id)
+  res.status("200").send({
+    status: "brewing coffee",
+    seconds: "100"
+  })
+});
+
+app.get("/order/:id", async (req, res) => {
+  if (!Machine.ON) {
+    startMachineAndBrew(req.params.id)
+    res.status("200").send({
+      status: "starting Machine and brewing",
+      seconds: "300"
+    })
+  } else {
+    startBrew(req.params.id)
+    res.status("200").send({
+      status: "brewing coffee",
+      seconds: "100"
+    })
+  }
+});
+
 async function startBrew(order) {
   logger.info("recived order, start brewing");
   await Machine.brew(order)
