@@ -18,8 +18,9 @@ app.post("/start", async (req, res) => {
   Machine.start()
 });
 
+//for Homebridge
 app.get('/getstatus', (req, res) => {
-  if(Machine.ON)
+  if (Machine.ON)
     res.status(200).send("1")
   else
     res.status(200).send("0")
@@ -35,12 +36,22 @@ app.post("/status", async (req, res) => {
   })
 });
 
+
 app.post("/manual", async (req, res) => {
   if (req.body.command == "AN:0A")
     res.status(500).send();
   await Machine.manual(req.body.command);
   res.status(200).send();
 
+});
+
+
+app.post("/orderInstant", async (req, res) => {
+  startBrew(req.body.order)
+  res.status("200").send({
+    status: "brewing coffee",
+    seconds: "100"
+  })
 });
 
 app.post("/order", async (req, res) => {
@@ -66,7 +77,7 @@ async function startBrew(order) {
 }
 
 async function startMachineAndBrew(order) {
-  logger.info("recived order "+order+", starting Machine");
+  logger.info("recived order " + order + ", starting Machine");
   await Machine.start()
   logger.info("Machine Started");
   await Machine.brew(order)

@@ -42,7 +42,7 @@ class CoffeeMachine {
     }
 
     static async brew(order) {
-        let res = await axios.post(ADRESS, "FA:0" + order,config);
+        let res = await axios.post(ADRESS, "FA:0" + order, config);
         logger.info("Start brewing "+order+" "+res.body)
         await this.timeout(BREW_TIME)
         this.sleep()
