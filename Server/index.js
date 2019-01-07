@@ -41,6 +41,7 @@ app.post("/stop", async (req, res) => {
 });
 
 app.post("/status", async (req, res) => {
+  logger.info("getStatus");
   res.status("200").send({
     status: Machine.ON
   })
