@@ -14,9 +14,7 @@ app.use(express.static('../vue/dist'));
 app.get('/', (req, res) => {
   res.sendFile('../vue/dist/index.html');
 });
-app.post("/start", async (req, res) => {
-  Machine.start()
-});
+
 
 //for Homebridge
 app.get('/getStatus', (req, res) => {
@@ -24,6 +22,18 @@ app.get('/getStatus', (req, res) => {
     res.status(200).send("1")
   else
     res.status(200).send("0")
+});
+
+app.get("/start", async (req, res) => {
+  Machine.start()
+});
+
+app.get("/stop", async (req, res) => {
+  Machine.stop()
+});
+
+app.post("/start", async (req, res) => {
+  Machine.start()
 });
 
 app.post("/stop", async (req, res) => {
