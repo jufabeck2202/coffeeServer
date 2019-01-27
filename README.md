@@ -1,4 +1,4 @@
-# vue
+# coffeex
 
 ## Project setup
 ```
