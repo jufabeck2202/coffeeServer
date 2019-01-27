@@ -1,4 +1,4 @@
-# coffeex
+# Coffee Server
 
 ## Project setup
 ```
